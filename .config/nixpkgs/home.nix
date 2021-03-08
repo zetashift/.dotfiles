@@ -26,13 +26,14 @@ in
   home.homeDirectory = "/home/rishi";
   home.packages = with pkgs; [
     rnix-lsp
-  	my-emacs
-  	ripgrep
+    my-emacs
+    ripgrep
     fzf
-  	jq
-  	fd
-  	metals
-	  ibm-plex
+    jq
+    fd
+    metals
+    ibm-plex
+    starship
   ];
 
   programs.direnv.enable = true;

@@ -1,10 +1,12 @@
 
-Remove the promp
+#Remove the prompt
 set -g fish_greeting
-
 fish_add_path ~/.emacs.d/bin
 fish_add_path ~/.nimble/bin
+fish_add_path ~/spicetify-cli/
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+set SPICETIFY_INSTALL ~/spicetify-cli/
+alias em="emacsclient -c --alternate-editor="""
 starship init fish | source
 
 # >>> conda initialize >>>
