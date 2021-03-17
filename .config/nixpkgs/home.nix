@@ -1,20 +1,4 @@
-{ config, pkgs, ... }:
-
-let 
-	unstable = import (fetchTarball
-		"https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz") {
-  		overlays = [
-    		(import (builtins.fetchTarball {
-      		url =
-        		"https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
-       	}))
-    	];
-  };
-
-	my-emacs = (pkgs.emacsPackagesGen unstable.emacsPgtkGcc).emacsWithPackages
-		(epkgs: [ epkgs.vterm epkgs.pdf-tools ]);
-
-in 
+{ pkgs, ... }:
 
 {
   # Let Home Manager install and manage itself.
@@ -25,8 +9,6 @@ in
   home.username = "rishi";
   home.homeDirectory = "/home/rishi";
   home.packages = with pkgs; [
-    rnix-lsp
-    my-emacs
     ripgrep
     fzf
     jq
@@ -34,10 +16,14 @@ in
     metals
     ibm-plex
     starship
+    ammonite
+    direnv
+    lorri
   ];
 
   programs.direnv.enable = true;
-  programs.direnv.enableNixDirenvIntegration = true;
+  # programs.direnv.enableNixDirenvIntegration = true;
+  # services.lorri.enable = true;
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new Home Manager release introduces backwards
