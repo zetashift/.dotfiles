@@ -6,8 +6,8 @@ fish_add_path ~/Applications/
 fish_add_path ~/spicetify-cli/
 fish_add_path ~/.local/share/coursier/bin
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias oni="Onivim2-x86_64-master_effbd0e6f5f1b780fb7a6f3483131487.AppImage"
-alias em="emacsclient --create-frame --alternate-editor="""
+alias oni="Onivim2-x86_64-master_88c241e1c3010ab0146b7b68d7760742.AppImage"
+alias v="nvim"
 set SPICETIFY_INSTALL ~/spicetify-cli/
 
 starship init fish | source

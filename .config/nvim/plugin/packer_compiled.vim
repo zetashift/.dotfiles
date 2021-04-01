@@ -36,13 +36,21 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/rishi/.local/share/nvim/site/pack/packer/start/auto-pairs"
   },
+  ["ayu-vim"] = {
+    loaded = true,
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/ayu-vim"
+  },
+  everforest = {
+    loaded = true,
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/everforest"
+  },
   ["goyo.vim"] = {
     loaded = true,
     path = "/home/rishi/.local/share/nvim/site/pack/packer/start/goyo.vim"
   },
-  gruvbox = {
+  ["gruvbox-material"] = {
     loaded = true,
-    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/gruvbox"
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/gruvbox-material"
   },
   ["indent-blankline.nvim"] = {
     loaded = true,
@@ -56,15 +64,27 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/rishi/.local/share/nvim/site/pack/packer/start/lightline.vim"
   },
+  ["lspsaga.nvim"] = {
+    loaded = true,
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/lspsaga.nvim"
+  },
   ["markdown-preview.nvim"] = {
     commands = { "MarkdownPreview" },
     loaded = false,
     needs_bufread = false,
     path = "/home/rishi/.local/share/nvim/site/pack/packer/opt/markdown-preview.nvim"
   },
+  ["neoscroll.nvim"] = {
+    loaded = true,
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/neoscroll.nvim"
+  },
   nerdtree = {
     loaded = true,
     path = "/home/rishi/.local/share/nvim/site/pack/packer/start/nerdtree"
+  },
+  ["nim.vim"] = {
+    loaded = true,
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/nim.vim"
   },
   ["nvim-colorizer.lua"] = {
     loaded = true,
@@ -74,9 +94,21 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/rishi/.local/share/nvim/site/pack/packer/start/nvim-compe"
   },
+  ["nvim-lspconfig"] = {
+    loaded = true,
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
+  },
   ["nvim-metals"] = {
     loaded = true,
     path = "/home/rishi/.local/share/nvim/site/pack/packer/start/nvim-metals"
+  },
+  ["nvim-toggleterm.lua"] = {
+    loaded = true,
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/nvim-toggleterm.lua"
+  },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -87,13 +119,33 @@ _G.packer_plugins = {
     needs_bufread = false,
     path = "/home/rishi/.local/share/nvim/site/pack/packer/opt/packer.nvim"
   },
+  ["plenary.nvim"] = {
+    loaded = true,
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/plenary.nvim"
+  },
+  ["popup.nvim"] = {
+    loaded = true,
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/popup.nvim"
+  },
   rainbow = {
     loaded = true,
     path = "/home/rishi/.local/share/nvim/site/pack/packer/start/rainbow"
   },
+  ["telescope.nvim"] = {
+    loaded = true,
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/telescope.nvim"
+  },
   ["vim-easy-align"] = {
     loaded = true,
     path = "/home/rishi/.local/share/nvim/site/pack/packer/start/vim-easy-align"
+  },
+  ["vim-elixir"] = {
+    loaded = true,
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/vim-elixir"
+  },
+  ["vim-endwise"] = {
+    loaded = true,
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/vim-endwise"
   },
   ["vim-pandoc"] = {
     loaded = true,
@@ -102,6 +154,14 @@ _G.packer_plugins = {
   ["vim-pandoc-syntax"] = {
     loaded = true,
     path = "/home/rishi/.local/share/nvim/site/pack/packer/start/vim-pandoc-syntax"
+  },
+  ["vim-polyglot"] = {
+    loaded = true,
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/vim-polyglot"
+  },
+  ["vim-startify"] = {
+    loaded = true,
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/vim-startify"
   },
   ["vim-surround"] = {
     loaded = true,

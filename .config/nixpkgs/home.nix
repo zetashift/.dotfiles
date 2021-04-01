@@ -6,18 +6,11 @@ let
         (import (builtins.fetchTarball {
           url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
         }))
-      ];
-    };
-
-  unstablePinned = import (fetchTarball
-    "https://github.com/NixOS/nixpkgs/archive/1f77a4c8c74bbe896053994836790aa9bf6dc5ba.tar.gz") {
-    overlays = [
-      (import (builtins.fetchTarball {
-        # url = https://github.com/mjlbach/emacs-overlay/archive/master.tar.gz;
+	(import (builtins.fetchTarball {
         url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
       }))
-    ];
-  };
+      ];
+    };
 
 in {
   # Let Home Manager install and manage itself.
@@ -39,12 +32,19 @@ in {
     direnv
     lorri
     nixfmt
-    unstablePinned.emacsPgtkGcc
     (aspellWithDicts (ds: with ds; [
       en en-computers en-science nl
     ]))
     unstable.neovim-nightly
+    languagetool
   ];
+  programs.emacs = {
+    enable = true;
+    package = unstable.emacsPgtkGcc;
+    extraPackages = epkgs: with epkgs; [
+      vterm
+    ];
+  };
   # programs.direnv.enable = true;
   # programs.direnv.enableNixDirenvIntegration = true;
   # services.lorri.enable = true;

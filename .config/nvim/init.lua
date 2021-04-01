@@ -15,26 +15,47 @@ cmd [[packadd packer.nvim]]
 --Plugins Setup--
 -----------------
 require 'plugins'
+require("settings.compe").setup() -- For autocompletion
+require("nvim-treesitter.configs").setup({})
+require("settings.lsp").setup()   -- Make NeoVim an IDE!
+require("lspsaga").init_lsp_saga({
+  finder_action_keys = { open = "<CR>", vsplit = "s", split = "i", quit = "q" },
+  server_filetype_map = { metals = { "sbt", "scala" } },
+  code_action_prompt = { virtual_text = false },
+})
+
+-- toggleterm setup
+require("toggleterm").setup{
+  size = 15,
+  open_mapping = [[<C-`>]],
+  shade_filetypes = {},
+  shade_terminals = false,
+  shading_factor = '3', -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
+  start_in_insert = true,
+  persist_size = true,
+  direction = 'horizontal',
+}
 
 g.rainbow_active = 1
+g['AutoPairsCompatibleMaps'] = 0
 
 -- Theming
 vim.o.termguicolors = true
-g.onedark_terminal_italics = 2
-cmd 'colorscheme gruvbox'
+cmd 'colorscheme gruvbox-material'
 
 -- Status Bar
-g.lightline = { colorscheme = 'gruvbox';
+g.lightline = { colorscheme = 'everforest';
  active = { left = { { 'mode', 'paste' }, { 'gitbranch','readonly', 'filename', 'modified' } } };
 }
 
 -- Globals
 local indent = 2
-g['conceallevel'] = 3
-cmd 'filetype plugin on'
+g.conceallevel = 3
+cmd 'filetype plugin indent on'
 cmd 'syntax on'
 cmd 'set nocompatible'
-
+cmd 'set signcolumn=number'
+vim.o.completeopt = "menuone,noselect"
 vim.o.expandtab = true
 vim.o.tabstop = indent
 vim.o.shiftwidth = indent
@@ -43,6 +64,7 @@ vim.o.linebreak = true
 vim.o.confirm = true -- Don't fail the command but give a prompt
 vim.o.hidden = true -- Do not save when switching buffers
 vim.wo.number = true -- Enable line numbers by default
+vim.o.shortmess = string.gsub(vim.o.shortmess, "F", "") .. "c"
 
 -- Case insensitive searching
 vim.o.ignorecase = true
@@ -51,13 +73,12 @@ vim.o.smartcase = true
 -- Preview panes are opened below
 g.splitbelow = 0
 
-g.smartindent = true
-g['smarttab'] = true
-
 vim.o.autoread = true -- Reload files  changed outside of vim
 
 -- Some markdown globals
-cmd([[autocmd FileType markdown setlocal textwidth=80]])
+cmd([[autocmd FileType pandoc setlocal textwidth=80]])
+cmd([[autocmd BufRead,BufNewFile *.md setlocal spell]])
+g['pandoc#syntax#codeblocks#embeds#langs'] = {"scala","nim", "python", "elixir", "js=javascript","sh" ,"c"}
 
 -- Globals End Here!
 
@@ -78,15 +99,19 @@ map('n', '<leader>qq', ':q<CR>') -- Quit a file
 map('n', '<leader>fed', ':e ~/.config/nvim/init.lua<CR>')
 map('n', '<leader>ft', ':NERDTreeToggle<CR>')
 map('n', '<leader>bd', ':bdelete<CR>') -- Buffers
-map('n', '<leader>bb', ':buffers<CR>:buffer<Space>')
+map('n', '<leader>bb', ':Telescope buffers<CR>')
 map('n', '<leader>bn', ':bn<CR>')
 map('n', '<leader>bp', ':bp<CR>')
-map('n', '<leader>bN', ':enew<CR>')
+map('n', '<leader>bc', ':enew<CR>')
 map('n', '<leader>ww', '<C-w>w')
 map('n', '<leader>tz', ':Goyo<CR>')
+map('n', '<leader>ff', ':Telescope find_files<CR>')
 
 -- Scala Metals Setup
+Metals_config = require'metals'.bare_config
+Metals_config.init_options.statusBarProvider = 'on'
+
 cmd [[augroup lsp]]
 cmd [[au!]]
-cmd [[au FileType scala,sbt lua require("metals").initialize_or_attach(metals_config)]]
+cmd [[au FileType scala,sbt lua require("metals").initialize_or_attach(Metals_config)]]
 cmd [[augroup end]]

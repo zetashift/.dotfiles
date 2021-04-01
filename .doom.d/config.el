@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
-(setq user-full-name "Rishad"
-      user-mail-address "rskaraya@gmail.com")
+(setq user-full-name "John Doe"
+      user-mail-address "john@doe.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -16,29 +16,26 @@
 ;; + `doom-variable-pitch-font'
 ;; + `doom-big-font' -- used for `doom-big-font-mode'; use this for
 ;;   presentations or streaming.
-(setq doom-font (font-spec :family "Jetbrains Mono" :size 19))
-(setq doom-variable-pitch-font (font-spec :family "IBM Plex Sans" :size 19))
+;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
 ;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
-
+(setq doom-font (font-spec :family "Jetbrains Mono" :size 19))
+(setq doom-variable-pitch-font (font-spec :family "IBM Plex Sans" :size 19))
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-gruvbox)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/dev/vaults")
+(setq org-directory "~/org/")
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
-(setq-default tab-width 2)
-(setq +zen-text-scale 0.8)
-;; Map "SPC f t" to open a treetmacs window
-(map! :leader "f t" #'treemacs)
+(setq tab-width 2)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
@@ -54,15 +51,5 @@
 ;; the highlighted symbol at press 'K' (non-evil users must press 'C-c c k').
 ;; This will open documentation for it, including demos of how they are used.
 ;;
-;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
-;; (setf (alist-get 'markdown-mode +spell-excluded-faces-alist)
-;;       '(markdown-code-face
-;;         markdown-reference-face
-;;         markdown-link-face
-;;         markdown-url-face
-;;         markdown-markup-face
-;;         markdown-html-attr-value-face
-;;         markdown-html-attr-name-face
-;;         markdown-html-tag-name-face))
