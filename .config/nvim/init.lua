@@ -84,9 +84,9 @@ cmd 'set nocompatible'
 cmd 'set signcolumn=number'
 cmd 'set clipboard+=unnamedplus' -- Is this really a good idea?
 vim.o.completeopt = "menuone,noselect"
-vim.o.expandtab   = true
-vim.o.tabstop     = indent
-vim.o.shiftwidth  = indent
+
+cmd [[set tabstop=2 shiftwidth=2 expandtab]]
+
 vim.o.wrap        = true
 vim.o.linebreak   = true
 vim.o.confirm     = true -- Don't fail the command but give a prompt
