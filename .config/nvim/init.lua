@@ -1,4 +1,4 @@
--- This config is made possible by the people in the Doom Emacs Discord
+-- This config is made possible by the people in the Doom Emacs Discord and @ckipp01
 local cmd     = vim.cmd
 local g       = vim.g
 local execute = vim.api.nvim_command

@@ -1,5 +1,6 @@
 local M = {}
 
+-- Most of this is from @ckipp01 dots
 M.setup = function()
   local shared_diagnostic_settings =
     vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = true })
