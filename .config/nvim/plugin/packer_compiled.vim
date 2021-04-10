@@ -32,17 +32,21 @@ local function try_loadstring(s, component, name)
 end
 
 _G.packer_plugins = {
-  ["auto-pairs"] = {
-    loaded = true,
-    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/auto-pairs"
-  },
   ["ayu-vim"] = {
     loaded = true,
     path = "/home/rishi/.local/share/nvim/site/pack/packer/start/ayu-vim"
   },
-  everforest = {
+  ["emmet-vim"] = {
     loaded = true,
-    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/everforest"
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/emmet-vim"
+  },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/friendly-snippets"
+  },
+  ["gleam.vim"] = {
+    loaded = true,
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/gleam.vim"
   },
   ["goyo.vim"] = {
     loaded = true,
@@ -60,13 +64,21 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/rishi/.local/share/nvim/site/pack/packer/start/kommentary"
   },
-  ["lightline.vim"] = {
+  ["lexima.vim"] = {
     loaded = true,
-    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/lightline.vim"
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/lexima.vim"
+  },
+  ["lsp-status.nvim"] = {
+    loaded = true,
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/lsp-status.nvim"
   },
   ["lspsaga.nvim"] = {
     loaded = true,
     path = "/home/rishi/.local/share/nvim/site/pack/packer/start/lspsaga.nvim"
+  },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/lualine.nvim"
   },
   ["markdown-preview.nvim"] = {
     commands = { "MarkdownPreview" },
@@ -78,13 +90,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/rishi/.local/share/nvim/site/pack/packer/start/neoscroll.nvim"
   },
-  nerdtree = {
+  ["nim.nvim"] = {
     loaded = true,
-    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/nerdtree"
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/nim.nvim"
   },
-  ["nim.vim"] = {
+  ["nvim-bqf"] = {
     loaded = true,
-    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/nim.vim"
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/nvim-bqf"
   },
   ["nvim-colorizer.lua"] = {
     loaded = true,
@@ -105,6 +117,10 @@ _G.packer_plugins = {
   ["nvim-toggleterm.lua"] = {
     loaded = true,
     path = "/home/rishi/.local/share/nvim/site/pack/packer/start/nvim-toggleterm.lua"
+  },
+  ["nvim-tree.lua"] = {
+    loaded = true,
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
@@ -131,6 +147,18 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/rishi/.local/share/nvim/site/pack/packer/start/rainbow"
   },
+  tabular = {
+    loaded = true,
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/tabular"
+  },
+  ["telescope-fzy-native.nvim"] = {
+    loaded = true,
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/telescope-fzy-native.nvim"
+  },
+  ["telescope-project.nvim"] = {
+    loaded = true,
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/telescope-project.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/rishi/.local/share/nvim/site/pack/packer/start/telescope.nvim"
@@ -143,21 +171,17 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/rishi/.local/share/nvim/site/pack/packer/start/vim-elixir"
   },
-  ["vim-endwise"] = {
+  ["vim-markdown"] = {
     loaded = true,
-    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/vim-endwise"
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/vim-markdown"
   },
-  ["vim-pandoc"] = {
+  ["vim-nix"] = {
     loaded = true,
-    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/vim-pandoc"
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/vim-nix"
   },
-  ["vim-pandoc-syntax"] = {
+  ["vim-sneak"] = {
     loaded = true,
-    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/vim-pandoc-syntax"
-  },
-  ["vim-polyglot"] = {
-    loaded = true,
-    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/vim-polyglot"
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/vim-sneak"
   },
   ["vim-startify"] = {
     loaded = true,

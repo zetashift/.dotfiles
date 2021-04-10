@@ -1,4 +1,5 @@
 { config, pkgs, ... }:
+
 let
   unstable = import (fetchTarball
     "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz") {
@@ -6,9 +7,6 @@ let
         (import (builtins.fetchTarball {
           url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
         }))
-	(import (builtins.fetchTarball {
-        url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
-      }))
       ];
     };
 
@@ -23,6 +21,7 @@ in {
     bottom
     ripgrep
     fzf
+    fzy
     jq
     fd
     metals
@@ -32,19 +31,11 @@ in {
     direnv
     lorri
     nixfmt
-    (aspellWithDicts (ds: with ds; [
-      en en-computers en-science nl
-    ]))
-    unstable.neovim-nightly
-    languagetool
+    rnix-lsp
+    vale
+    #unstable.neovim-nightly
   ];
-  programs.emacs = {
-    enable = true;
-    package = unstable.emacsPgtkGcc;
-    extraPackages = epkgs: with epkgs; [
-      vterm
-    ];
-  };
+
   # programs.direnv.enable = true;
   # programs.direnv.enableNixDirenvIntegration = true;
   # services.lorri.enable = true;
