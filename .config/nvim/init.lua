@@ -16,6 +16,7 @@ cmd [[packadd packer.nvim]]
 -----------------
 require 'plugins'
 
+
 vim.cmd [[let g:lexima_no_default_rules = v:true]]
 vim.cmd [[call lexima#set_default_rules()]]
 vim.cmd [[let g:lexima_map_escape = '']]
@@ -61,7 +62,7 @@ require("lualine").setup{
 -- toggleterm setup
 require("toggleterm").setup{
   size            = 15,
-  open_mapping    = [[`]],
+  open_mapping    = [[<C-`>]],
   shade_filetypes = {},
   shade_terminals = false,
   shading_factor  = '3', -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
@@ -78,7 +79,7 @@ cmd [[let g:gruvbox_material_background = 'soft']]
 cmd [[colorscheme gruvbox-material]]
 
 -- Globals
-local indent      = 2
+-- local indent      = 2
 g.conceallevel    = 3
 cmd 'set nocompatible'
 cmd 'set signcolumn=number'
@@ -104,9 +105,13 @@ g.splitbelow = 0
 
 vim.o.autoread = true -- Reload files changed outside of vim
 
+-- Make `vim-sneak` an alternative to EasyMotion
+cmd [[let g:sneak#label = 1]]
 -- Some markdown globals
-cmd([[autocmd BufRead,BufNewFile *.md setlocal spell]])
+cmd [[autocmd BufRead,BufNewFile *.md setlocal spell]]
+cmd [[let g:mkdx#settings = { 'highlight': { 'enable': 1 } }]]
 cmd "let g:vim_markdown_fenced_languages = ['elixir', 'scala', 'javascript=js', 'nim', 'python', 'r']"
+
 -- Globals End Here!
 
 -- Keybindings, using Spacemacs-esque bindings

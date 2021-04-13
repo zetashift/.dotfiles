@@ -4,8 +4,7 @@ return require("packer").startup(function(use)
 
   -- Pretty writing
   use({ "junegunn/goyo.vim" })
-  use({ "godlygeek/tabular" })
-  use({ "plasticboy/vim-markdown" })
+  use({ "SidOfc/mkdx" })
   use({
     "iamcco/markdown-preview.nvim",
     run = "cd app && yarn install",
