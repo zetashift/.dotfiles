@@ -1,5 +1,12 @@
 local M = {}
 
+M.search_notes = function()
+  require("telescope.builtin").find_files({
+    prompt_title = "Browse Notes",
+    cwd = "~/dev/vaults/"
+  })
+end
+
 M.search_dotfiles = function()
   require("telescope.builtin").find_files({
     prompt_title = "NeoVim Config",

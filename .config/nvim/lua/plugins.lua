@@ -23,7 +23,6 @@ return require("packer").startup(function(use)
   -- LSP
   use({ "neovim/nvim-lspconfig" })
   use({ "glepnir/lspsaga.nvim" }) -- For additional tooltips and handy dandy stuff
-  use({ "nvim-lua/lsp-status.nvim" })
 
   -- Completions
   use({ "hrsh7th/nvim-compe", requires = { { "hrsh7th/vim-vsnip" } } })
@@ -50,7 +49,6 @@ return require("packer").startup(function(use)
       { "nvim-telescope/telescope-project.nvim" },
     },
   })
-  use({ "akinsho/nvim-toggleterm.lua" }) -- Easy terminal toggling
 
   use({ "nvim-treesitter/nvim-treesitter" }) -- Treesitter for better understanding of code.
 

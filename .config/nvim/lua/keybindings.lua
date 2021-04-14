@@ -52,14 +52,16 @@ M.setup = function()
 	map("n", "<leader>bb", ":Telescope buffers<CR>")
 	map("n", "<leader><space>", ":Telescope find_files<CR>")
 	map("n", "<leader>pp", ":lua require'telescope'.extensions.project.project{}<CR>")
+  map("n", "<leader>nf", ":lua require'settings.telescope'.search_notes()<CR>")
 
-	-- Window management
-	map("n", "<leader>ww", "<C-w>w") -- Switch windows
-	map("n", "<leader>wk", ":wincmd k<CR>")
-	map("n", "<leader>wj", ":wincmd j<CR>")
-	map("n", "<leader>wh", ":wincmd h<CR>")
-	map("n", "<leader>wl", ":wincmd l<CR>")
-	map("n", "<leader>wn", ":vnew<CR>")
+  -- Window management
+	map("n", "<leader>ww", "<C-w>w")          -- Switch windows
+	map("n", "<leader>wk", ":wincmd k<CR>")   -- Move to the window above
+	map("n", "<leader>wj", ":wincmd j<CR>")   -- Move to the window below
+	map("n", "<leader>wh", ":wincmd h<CR>")   -- Move to the window left
+	map("n", "<leader>wl", ":wincmd l<CR>")   -- Move to the window right
+	map("n", "<leader>wn", ":vnew<CR>")       -- Create new window, I've configured it to be a horizontal split
+  map("n", "<leader>wd", ":q<CR>")          -- Close a window
 
 	map("n", "<leader>tz", ":Goyo<CR>")
 
