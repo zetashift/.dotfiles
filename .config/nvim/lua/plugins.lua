@@ -11,13 +11,16 @@ return require("packer").startup(function(use)
     cmd = "MarkdownPreview",
   })
 
+  -- UI
+  use({ "hoob3rt/lualine.nvim" })
+  use({ "akinsho/nvim-toggleterm.lua" })
+
   -- Make things look pretty
   use({ "sainnhe/gruvbox-material" })
   use({ "ayu-theme/ayu-vim" })
   use({ "norcalli/nvim-colorizer.lua" })
   use({ "kyazdani42/nvim-web-devicons" })
   use({ "luochen1990/rainbow" })
-  use({ "hoob3rt/lualine.nvim" })
   use({ "kevinhwang91/nvim-bqf" }) -- Better quickfix window
 
   -- LSP
@@ -49,6 +52,9 @@ return require("packer").startup(function(use)
       { "nvim-telescope/telescope-project.nvim" },
     },
   })
+
+  -- REPL go brrr
+  use({ "hkupty/iron.nvim" })
 
   use({ "nvim-treesitter/nvim-treesitter" }) -- Treesitter for better understanding of code.
 

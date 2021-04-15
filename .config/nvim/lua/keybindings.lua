@@ -12,7 +12,7 @@ local M = {}
 M.setup = function()
   map("n", "<leader>fs", ":w<CR>") -- Saving files
   map("n", "<leader>qq", ":q<CR>") -- Quit a file/window
-  map("n", "<leader>fed", ":lua require('settings.telescope').search_dotfiles()<CR>")
+  map("n", "<leader>fP", ":lua require('settings.telescope').search_dotfiles()<CR>")
   map("n", "<leader>ft", ":NvimTreeToggle<CR>")
 
   -- Buffers
@@ -50,8 +50,10 @@ M.setup = function()
   vim.cmd([[smap <expr> <S-Tab> vsnip#jumpable(-1) ? "<Plug>(vsnip-jump-prev)" : "<S-Tab>"]])
 
   -- Telescope for easy file finding
+  map("n", "<leader>ff", ":Telescope find_files<CR>")
+  map("n", "<leader>fg", ":Telescope live_grep<CR>")
   map("n", "<leader>bb", ":Telescope buffers<CR>")
-  map("n", "<leader><space>", ":Telescope find_files<CR>")
+  map("n", "<leader><space>", ":Telescope find_files<CR>") -- TODO: Have to work this out with "<leader>ff" binding.
   map("n", "<leader>pp", ":lua require'telescope'.extensions.project.project{}<CR>")
   map("n", "<leader>nf", ":lua require'settings.telescope'.search_notes()<CR>")
 
@@ -64,6 +66,13 @@ M.setup = function()
   map("n", "<leader>wn", ":vnew<CR>")       -- Create new window, I've configured it to be a horizontal split
   map("n", "<leader>wd", ":q<CR>")          -- Close a window
 
+  -- Terminal
+  map("t", "<Esc>", [[<C-\><C-n>]])
+
+  -- Iron.nvim mappings for easy REPL'ing
+  map("n", "<leader>or", [[:lua require'settings.iron'.open_iron("below 15 split")<CR>]])
+
+  -- Basically zen mode
   map("n", "<leader>tz", ":Goyo<CR>")
 
   map("v", "ga", ":EasyAlign)")
