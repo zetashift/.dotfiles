@@ -28,7 +28,7 @@ in {
   home.username = "rishi";
   home.homeDirectory = "/home/rishi";
   home.packages = with pkgs; [
-    bottom
+    tinycc
     ripgrep
     fzf
     fzy
@@ -42,15 +42,11 @@ in {
     lorri
     nixfmt
     rnix-lsp
-    vale
   ];
 
   programs.emacs = {
     enable = true;
     package = unstableEmacs.emacsPgtkGcc;
-    extraPackages = epkgs: with epkgs; [
-      vterm
-    ];
   };
 
   # programs.direnv.enable = true;
