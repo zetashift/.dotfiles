@@ -16,9 +16,18 @@ end
 
 M.setup = function()
   -- I'll be using Telescope for project management too
-  require("telescope").setup()
+  require("telescope").setup({
+    extensions = {
+      fzf = {
+        override_generic_sorter = true,
+        override_file_sorter = true,
+        case_mode = "smart_case",
+      }
+    }
+  })
+  require("telescope").load_extension("frecency")
   require("telescope").load_extension("project")
-  require("telescope").load_extension("fzy_native")
+  require("telescope").load_extension("fzf")
 end
 
 return M

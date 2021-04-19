@@ -16,6 +16,7 @@ cmd [[packadd packer.nvim]]
 -----------------
 require 'plugins'
 
+-- Compe needs these 3 lines so <CR>, compe and lexima play well.
 vim.cmd [[let g:lexima_no_default_rules = v:true]]
 vim.cmd [[call lexima#set_default_rules()]]
 vim.cmd [[let g:lexima_map_escape = '']]
@@ -44,7 +45,7 @@ require("lualine").setup{
           lualine_a = { {'mode', upper = true} },
           lualine_b = { {'branch', icon = ''} },
           lualine_c = { {'filename', file_status = true, 'filetype' } },
-          lualine_x = { 'encoding', 'fileformat' },
+          lualine_x = { 'fileformat' },
           lualine_y = { {'g:metals_status', 'bo:filetype'} },
           lualine_z = { 'location'},
         },
@@ -57,6 +58,19 @@ require("lualine").setup{
           lualine_z = {   }
         }
 }
+
+require"toggleterm".setup{
+  size = 20,
+  open_mapping = [[`]],
+  shade_filetypes = {},
+  shade_terminals = true,
+  shading_factor = '1', -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
+  start_in_insert = true,
+  persist_size = true,
+  direction = 'horizontal',
+  insert_mappings = false,
+}
+require"hop".setup { keys = "n", "s" }
 
 g.rainbow_active = 1
 
@@ -71,18 +85,21 @@ g.conceallevel    = 3
 cmd 'set nocompatible'
 cmd 'set signcolumn=number'
 cmd 'set clipboard+=unnamedplus' -- Is this really a good idea?
+cmd 'set undofile'
+
 vim.o.completeopt = "menuone,noselect"
 
-cmd [[set tabstop=2 shiftwidth=2 expandtab]]
+cmd [[set tabstop=2 shiftwidth=2 expandtab]] -- https://github.com/neovim/neovim/issues/12978
 
-vim.o.wrap        = true
-vim.o.linebreak   = true
+vim.o.wrap        = true -- Wrap when it doesn't fit the screen
+vim.o.linebreak   = true -- Only break lines when I actually press "Enter"
 vim.o.confirm     = true -- Don't fail the command but give a prompt
 vim.o.hidden      = true -- Do not save when switching buffers
 vim.wo.number     = true -- Enable line numbers by default
 vim.o.shortmess   = string.gsub(vim.o.shortmess, "F", "") .. "c"
 vim.o.hlsearch    = false
-
+vim.o.incsearch   = true
+vim.o.splitright  = true -- When doing a vertical split, new window ends up right.
 -- Case insensitive searching
 vim.o.ignorecase  = true
 vim.o.smartcase   = true
@@ -90,6 +107,7 @@ vim.o.smartcase   = true
 -- Preview panes are opened below
 g.splitbelow = 0
 
+vim.o.updatetime = 250 -- Decrease update time
 vim.o.autoread = true -- Reload files changed outside of vim
 
 -- Make `vim-sneak` an alternative to EasyMotion

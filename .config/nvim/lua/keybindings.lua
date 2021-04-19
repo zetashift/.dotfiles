@@ -52,6 +52,7 @@ M.setup = function()
   -- Telescope for easy file finding
   map("n", "<leader>ff", ":Telescope find_files<CR>")
   map("n", "<leader>fg", ":Telescope live_grep<CR>")
+  map("n", "<leader>fr", ":Telescope frecency<CR>")
   map("n", "<leader>bb", ":Telescope buffers<CR>")
   map("n", "<leader><space>", ":Telescope find_files<CR>") -- TODO: Have to work this out with "<leader>ff" binding.
   map("n", "<leader>pp", ":lua require'telescope'.extensions.project.project{}<CR>")
@@ -72,6 +73,8 @@ M.setup = function()
   -- Iron.nvim mappings for easy REPL'ing
   map("n", "<leader>or", [[:lua require'settings.iron'.open_iron("below 15 split")<CR>]])
 
+  -- Various text editing commands
+  map("n", "s", [[require'hop'.hint_char2]])
   -- Basically zen mode
   map("n", "<leader>tz", ":Goyo<CR>")
 

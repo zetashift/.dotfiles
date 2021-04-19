@@ -16,16 +16,33 @@ every time I edit a text file.
 
 **Jumping to lines**
 - Press `:` followed by the line number you want to go to.
-- In `Normal Mode` type in the line number followed by `gg`.
+- In `Normal Mode` type in the line number followed by `G` or `gg`.
+
+## The `g`
+
+**In normal mode**
 
 # Motions and operators
 
-# Vim Sneak
+# Hop.nvim
 
-With this we can jump to any location specified by two characters.
+With this we can jump to any location specified by two characters(and other options). I use this as an alternative to EasyMotion/vim-sneak.
 Press `s` followed by what characters you want to jump to.
 
 For example pressing `sfo` in `normal mode` will jump *immediately* to the next instance of the text `fo`
 
 # Vim Surround
+
+# Markdown
+
+[mkdx](https://github.com/SidOfc/mkdx) is awesome. It has several mappings:
+
+```
+<leader>/ => italic
+<leader>b => bold
+<leader>` => inline code
+<leader>s => strikethrough
+<leader>i => insert/update TOC
+```
+
 

@@ -27,6 +27,8 @@ M.setup = function()
         priority = 1000,
         filetypes = langs,
       },
+      snippets_nvim = true,
+      treesitter = true
     },
   })
   -- set_keybinds()

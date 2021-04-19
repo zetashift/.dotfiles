@@ -11,7 +11,7 @@ return require("packer").startup(function(use)
     cmd = "MarkdownPreview",
   })
 
-  -- UI
+  -- Statusline: makes it look like I know what I'm doing
   use({ "hoob3rt/lualine.nvim" })
   use({ "akinsho/nvim-toggleterm.lua" })
 
@@ -30,25 +30,25 @@ return require("packer").startup(function(use)
   -- Completions
   use({ "hrsh7th/nvim-compe", requires = { { "hrsh7th/vim-vsnip" } } })
   use({ "rafamadriz/friendly-snippets" })
-  use({ "karb94/neoscroll.nvim" }) -- Smooth scrolling
 
   -- Text editing
   use({ "b3nj5m1n/kommentary" })
   use({ "cohama/lexima.vim" })
   use({ "lukas-reineke/indent-blankline.nvim", branch = "lua" })
   use({ "tpope/vim-surround" })
-  use({ "justinmk/vim-sneak" })
+  use({ 'phaazon/hop.nvim'})
   use({ "junegunn/vim-easy-align" })
 
   -- File managing & Finding All The Things
   use({ "mhinz/vim-startify" }) -- Fancy homepage
   use({ "kyazdani42/nvim-tree.lua" })
+  use({ "nvim-telescope/telescope-frecency.nvim", requires = { "tami5/sql.nvim"}})
   use({
     "nvim-telescope/telescope.nvim",
     requires = {
       { "nvim-lua/popup.nvim" },
       { "nvim-lua/plenary.nvim" },
-      { "nvim-telescope/telescope-fzy-native.nvim" },
+      { "nvim-telescope/telescope-fzf-native.nvim", run="make" },
       { "nvim-telescope/telescope-project.nvim" },
     },
   })
