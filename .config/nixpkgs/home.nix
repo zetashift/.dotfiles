@@ -9,17 +9,6 @@ let
         }))
       ];
     };
-  unstableEmacs = import (fetchTarball
-      # "https://github.com/NixOS/nixpkgs/archive/1f77a4c8c74bbe896053994836790aa9bf6dc5ba.tar.gz") {
-      "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz") {
-      overlays = [
-        (import (builtins.fetchTarball {
-          # url = https://github.com/mjlbach/emacs-overlay/archive/master.tar.gz;
-          url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
-        }))
-      ];
-    };
-
 in {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -44,10 +33,10 @@ in {
     rnix-lsp
   ];
 
-  programs.emacs = {
-    enable = true;
-    package = unstableEmacs.emacsPgtkGcc;
-  };
+  # programs.emacs = {
+  #   enable = true;
+  #   package = unstableEmacs.emacsPgtkGcc;
+  # };
 
   # programs.direnv.enable = true;
   # programs.direnv.enableNixDirenvIntegration = true;
