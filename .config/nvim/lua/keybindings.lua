@@ -9,11 +9,28 @@ end
 
 local M = {}
 
+_G.MUtils = {}
+
+local npairs = require("nvim-autopairs")
+vim.g.completion_confirm_key = ""
+MUtils.completion_confirm = function()  -- Get compe and autopairs working nicely
+  if vim.fn.pumvisible() ~= 0  then
+    if vim.fn.complete_info()["selected"] ~= -1 then
+      return vim.fn["compe#confirm"](npairs.esc("<cr>"))
+    else
+      return npairs.esc("<cr>")
+    end
+  else
+    return npairs.autopairs_cr()
+  end
+end
+
 M.setup = function()
   map("n", "<leader>fs", ":w<CR>") -- Saving files
   map("n", "<leader>qq", ":q<CR>") -- Quit a file/window
   map("n", "<leader>fP", ":lua require('settings.telescope').search_dotfiles()<CR>")
   map("n", "<leader>ft", ":NvimTreeToggle<CR>")
+  map("n", "Y", "y$")              -- Yank until the end of the line
 
   -- Buffers
   map("n", "<leader>bd", ":bdelete<CR>")
@@ -43,7 +60,7 @@ M.setup = function()
   map("n", "<leader>ln", "<cmd>lua vim.lsp.diagnostic.get_line_diagnostics()<CR>")
 
   -- Lexima, nvim-compe and vsnips movements
-  map("i", "<CR>", [[compe#confirm(lexima#expand('<LT>CR>', 'i'))]], { expr = true })
+  map('i' , '<CR>','v:lua.MUtils.completion_confirm()', {expr = true , noremap = true})
   vim.cmd([[imap <expr> <Tab>   pumvisible() ? "<C-n>" : vsnip#jumpable(1)   ? "<Plug>(vsnip-jump-next)" : "<Tab>"]])
   vim.cmd([[imap <expr> <S-Tab> pumvisible() ? "<C-p>" : vsnip#jumpable(-1)  ? "<Plug>(vsnip-jump-prev)" : "<S-Tab>"]])
   vim.cmd([[smap <expr> <Tab>   vsnip#jumpable(1)  ? "<Plug>(vsnip-jump-next)" : "<Tab>"]])
@@ -52,11 +69,13 @@ M.setup = function()
   -- Telescope for easy file finding
   map("n", "<leader>ff", ":Telescope find_files<CR>")
   map("n", "<leader>fg", ":Telescope live_grep<CR>")
-  map("n", "<leader>fr", ":Telescope frecency<CR>")
+  map("n", "<leader>fr", ":Telescope frecency<CR>") -- Search for a recent file by freceny
   map("n", "<leader>bb", ":Telescope buffers<CR>")
   map("n", "<leader><space>", ":Telescope find_files<CR>") -- TODO: Have to work this out with "<leader>ff" binding.
   map("n", "<leader>pp", ":lua require'telescope'.extensions.project.project{}<CR>")
   map("n", "<leader>nf", ":lua require'settings.telescope'.search_notes()<CR>")
+  map("n", "<leader>gc", [[<cmd>lua require('telescope.builtin').git_commits()<cr>]])
+
 
   -- Window management
   map("n", "<leader>ww", "<C-w>w")          -- Switch windows
@@ -74,12 +93,10 @@ M.setup = function()
   map("n", "<leader>or", [[:lua require'settings.iron'.open_iron("below 15 split")<CR>]])
 
   -- Various text editing commands
-  map("n", "s", [[require'hop'.hint_char2]])
+  map("n", "s",  [[:lua require'hop'.hint_char2()<CR>]])
   -- Basically zen mode
   map("n", "<leader>tz", ":Goyo<CR>")
 
-  map("v", "ga", ":EasyAlign)")
-  map("n", "ga", ":EasyAlign)")
   vim.cmd("xmap ga <Plug>(EasyAlign)")
   vim.cmd("nmap ga <Plug>(EasyAlign)")
 end

@@ -33,7 +33,7 @@ return require("packer").startup(function(use)
 
   -- Text editing
   use({ "b3nj5m1n/kommentary" })
-  use({ "cohama/lexima.vim" })
+  use({ "windwp/nvim-autopairs" })
   use({ "lukas-reineke/indent-blankline.nvim", branch = "lua" })
   use({ "tpope/vim-surround" })
   use({ 'phaazon/hop.nvim'})
@@ -52,6 +52,14 @@ return require("packer").startup(function(use)
       { "nvim-telescope/telescope-project.nvim" },
     },
   })
+
+  -- Git
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    }
+  }
 
   -- REPL go brrr
   use({ "hkupty/iron.nvim" })

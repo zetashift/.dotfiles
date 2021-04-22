@@ -55,12 +55,16 @@ M.setup = function()
   -- Javascript
   lsp_config.tsserver.setup({})
 
+  lsp_config.pyright.setup({})
+
   -- Nix
   lsp_config.rnix.setup({})
   -- Elixir
   lsp_config.elixirls.setup({
     cmd = { "/home/rishi/bin/langservs/elixirls/language_server.sh" },
   })
+  -- Ltex-ls, for yelling grammar mistakes at me
+  require'ltex_ls'.setup()
 end
 
 return M

@@ -16,11 +16,6 @@ cmd [[packadd packer.nvim]]
 -----------------
 require 'plugins'
 
--- Compe needs these 3 lines so <CR>, compe and lexima play well.
-vim.cmd [[let g:lexima_no_default_rules = v:true]]
-vim.cmd [[call lexima#set_default_rules()]]
-vim.cmd [[let g:lexima_map_escape = '']]
-
 require("settings.compe").setup()             -- For autocompletion
 require("nvim-treesitter.configs").setup{
   query_linter = {
@@ -36,7 +31,7 @@ require("settings.lsp").setup()               -- Make NeoVim an IDE!
 require("settings.telescope").setup()
 require("lspsaga").init_lsp_saga({
   server_filetype_map = { metals = { "sbt", "scala" } },
-  code_action_prompt  = { virtual_text = true },
+  code_action_prompt  = { sign = false, virtual_text = true },
 })
 
 require("lualine").setup{
@@ -45,7 +40,7 @@ require("lualine").setup{
           lualine_a = { {'mode', upper = true} },
           lualine_b = { {'branch', icon = ''} },
           lualine_c = { {'filename', file_status = true, 'filetype' } },
-          lualine_x = { 'fileformat' },
+          lualine_x = { {'diagnostics', color_error = "#FFA500", sources = {'nvim_lsp'}} },
           lualine_y = { {'g:metals_status', 'bo:filetype'} },
           lualine_z = { 'location'},
         },
@@ -70,7 +65,10 @@ require"toggleterm".setup{
   direction = 'horizontal',
   insert_mappings = false,
 }
-require"hop".setup { keys = "n", "s" }
+require"nvim-autopairs".setup()
+require"gitsigns".setup()
+
+require"hop".setup({ keys = "etovxqpdygfbzcisuran" })
 
 g.rainbow_active = 1
 
@@ -81,37 +79,35 @@ cmd [[colorscheme gruvbox-material]]
 
 -- Options
 -- local indent      = 2
-g.conceallevel    = 3
+
 cmd 'set nocompatible'
-cmd 'set signcolumn=number'
 cmd 'set clipboard+=unnamedplus' -- Is this really a good idea?
 cmd 'set undofile'
-
+cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 vim.o.completeopt = "menuone,noselect"
 
 cmd [[set tabstop=2 shiftwidth=2 expandtab]] -- https://github.com/neovim/neovim/issues/12978
 
-vim.o.wrap        = true -- Wrap when it doesn't fit the screen
-vim.o.linebreak   = true -- Only break lines when I actually press "Enter"
-vim.o.confirm     = true -- Don't fail the command but give a prompt
-vim.o.hidden      = true -- Do not save when switching buffers
-vim.wo.number     = true -- Enable line numbers by default
-vim.o.shortmess   = string.gsub(vim.o.shortmess, "F", "") .. "c"
-vim.o.hlsearch    = false
-vim.o.incsearch   = true
-vim.o.splitright  = true -- When doing a vertical split, new window ends up right.
+vim.o.wrap         = true -- Wrap when it doesn't fit the screen
+vim.o.linebreak    = true -- Only break lines when I actually press "Enter"
+vim.o.confirm      = true -- Don't fail the command but give a prompt
+vim.o.hidden       = true -- Do not save when switching buffers
+vim.wo.number      = true -- Enable line numbers by default
+vim.o.conceallevel = 2    -- Hide certain text, mostly useful for Markdown
+vim.o.shortmess    = string.gsub(vim.o.shortmess, "F", "") .. "c"
+vim.o.hlsearch     = false
+vim.o.incsearch    = true
+vim.o.splitright   = true -- When doing a vertical split, new window ends up right.
+
 -- Case insensitive searching
-vim.o.ignorecase  = true
-vim.o.smartcase   = true
+vim.o.ignorecase   = true
+vim.o.smartcase    = true
 
 -- Preview panes are opened below
 g.splitbelow = 0
 
 vim.o.updatetime = 250 -- Decrease update time
 vim.o.autoread = true -- Reload files changed outside of vim
-
--- Make `vim-sneak` an alternative to EasyMotion
-cmd [[let g:sneak#label = 1]]
 
 -- Some markdown globals
 cmd [[autocmd BufRead,BufNewFile *.md setlocal spell]]
