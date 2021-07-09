@@ -1,15 +1,6 @@
 { config, pkgs, ... }:
 
-let
-  unstable = import (fetchTarball
-    "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz") {
-      overlays = [
-        (import (builtins.fetchTarball {
-          url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
-        }))
-      ];
-    };
-in {
+{
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   # Home Manager needs a bit of information about you and the
@@ -17,26 +8,29 @@ in {
   home.username = "rishi";
   home.homeDirectory = "/home/rishi";
   home.packages = with pkgs; [
+    bottom
     tinycc
     ripgrep
     fzf
-    fzy
     jq
     fd
-    metals
     ibm-plex
     starship
     ammonite
     direnv
     lorri
     nixfmt
+    black
     rnix-lsp
+    metals
+    nodePackages.json-server
+    nodePackages.pyright
+    nodePackages.vscode-html-languageserver-bin
+    nodePackages.typescript-language-server
+    nodePackages.diagnostic-languageserver
+    nodePackages.vscode-css-languageserver-bin
+    sumneko-lua-language-server
   ];
-
-  # programs.emacs = {
-  #   enable = true;
-  #   package = unstableEmacs.emacsPgtkGcc;
-  # };
 
   # programs.direnv.enable = true;
   # programs.direnv.enableNixDirenvIntegration = true;

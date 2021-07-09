@@ -1,7 +1,0 @@
-NeoVim
-Nvim-tree
-nvim
-nvim-lspconfig
-Nim
-Javascript
-colorscheme
