@@ -39,10 +39,16 @@
               :<leader>f {
                 ;; File navigation related bindings
                 :name :file
+                :a "Find actions"
                 :s [":w<CR>"              "Save file"]
-                :f "Search through project"
+                :f "Find through project"
+                :g "Find through Git files"
+                :h "Find in Vim Help"
+                :j "Find in Jumplist"
                 :t [":NvimTreeToggle<CR>" "Toggle NvimTree"]
-                :P "browse config"              ;; Snap-mapping to search config
+                :P "Browse config"              ;; Snap-mapping to search config
+                :w "Grep current word"
+                :r "Recent files"
               }
 
               :<leader>w {
@@ -86,6 +92,7 @@
                    :n  [vim.lsp.diagnostic.get_line_diagnostic                         "Show line diagnostic"] 
                    :r  [vim.lsp.buf.references                                         "Go to references"]
                    :R  ["<cmd>lua require'lspsaga.rename'.rename()<CR>"                "Rename"]
+                   :s  [":SymbolsOutline<CR>"                                          "LSP Symbols"]
               }
 
               "]" {

@@ -11,6 +11,7 @@
 (set vim.o.completeopt "menuone,noinsert,noselect")
 (set nvim.o.updatetime 500)
 (set nvim.o.timeoutlen 500)
+(: (vim.opt_global.shortmess:remove :F) :append :c)
 (set nvim.o.sessionoptions "blank,curdir,folds,help,tabpages,winsize")
 (set nvim.o.inccommand :split)
 (set nvim.o.signcolumn :yes)
