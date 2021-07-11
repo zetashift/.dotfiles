@@ -37,7 +37,7 @@
   ;;; LSP and Treesitter
   :neovim/nvim-lspconfig {:mod :lsp}                    ;; Easy LSP configuration
   :jose-elias-alvarez/null-ls.nvim {}                   ;; General purpose languageserver
-  :glepnir/lspsaga.nvim {}
+  :glepnir/lspsaga.nvim {}                              ;; Actions that for LSP
   :nvim-treesitter/nvim-treesitter { :mod :treesitter } ;; Fine-grained structural editing for everyone
   :nvim-treesitter/playground {}                        ;; Actually see the fine-grained structure!
   :nvim-lua/lsp-status.nvim {}                          ;; Statusline LSP components
@@ -56,17 +56,16 @@
   :folke/zen-mode.nvim { :mod :zen-mode }               ;; Zen Mode
 
   ;; Eyecandy
-  :windwp/nvim-autopairs { :mod :auto-pairs }                        ;; Autocomplete even the tiniest things
-  :eddyekofo94/gruvbox-flat.nvim {}                                  ;; Subjectively objectively the best theme
-  :elianiva/gruvy.nvim { :requires :rktjmp/lush.nvim }               ;; A variant on subjectively objectively the best them
-  :/home/rishi/dev/gruvyflat {}                                      ;; My own version of gruvbox
-  :hoob3rt/lualine.nvim { :mod :lualine }                            ;; Displays stuff that I don't read anyway
-  :lewis6991/gitsigns.nvim { :mod :gitsigns }                        ;; Pretty colors for Git changes
-  :kyazdani42/nvim-web-devicons { :mod :web-devicons }               ;; Pretty icons!
-  :lukas-reineke/indent-blankline.nvim { :mod :indent-blankline }    ;; Pretty indent guides 
-  :p00f/nvim-ts-rainbow {}                                           ;; Use tree-sitter for pretty brackets
-  :norcalli/nvim-colorizer.lua { :mod :colorizer }                   ;; Inline color highlighters
-  ;;; Text editing
+  :windwp/nvim-autopairs { :mod :auto-pairs }                          ;; Autocomplete even the tiniest things
+  :elianiva/gruvy.nvim { :requires :rktjmp/lush.nvim :mod :gruvy }     ;; A variant on subjectively objectively the best theme
+  :hoob3rt/lualine.nvim { :mod :lualine }                              ;; Displays stuff that I don't read anyway
+  :lewis6991/gitsigns.nvim { :mod :gitsigns }                          ;; Pretty colors for Git changes
+  :kyazdani42/nvim-web-devicons { :mod :web-devicons }                 ;; Pretty icons!
+  :lukas-reineke/indent-blankline.nvim { :mod :indent-blankline }      ;; Pretty indent guides 
+  :p00f/nvim-ts-rainbow {}                                             ;; Use tree-sitter for pretty brackets
+  :norcalli/nvim-colorizer.lua { :mod :colorizer }                     ;; Inline color highlighters
+
+  ;; Text editing
   :ggandor/lightspeed.nvim {}                            ;; Supercharged EasyMotion, using Fennel
   :liuchengxu/vim-better-default {:mod :better-default}  ;; Better defaults
   :mbbill/undotree {}                                    ;; See my mistakes in a tree view!
