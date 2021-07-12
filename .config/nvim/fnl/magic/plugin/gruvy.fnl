@@ -1,5 +1,6 @@
 (module magic.plugin.gruvy
-  {autoload {lush lush
+  {autoload {nvim aniseed.nvim
+             lush lush
              hsl lush.hsl}})
 
 (local colors { :yellow       (hsl :#d8a657)

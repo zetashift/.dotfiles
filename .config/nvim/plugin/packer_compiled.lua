@@ -11,7 +11,7 @@ local no_errors, error_msg = pcall(function()
 
   local time
   local profile_info
-  local should_profile = false
+  local should_profile = true
   if should_profile then
     local hrtime = vim.loop.hrtime
     profile_info = {}
@@ -133,6 +133,14 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/rishi/.local/share/nvim/site/pack/packer/start/lush.nvim"
   },
+  neogit = {
+    loaded = true,
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/neogit"
+  },
+  neorg = {
+    loaded = true,
+    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/neorg"
+  },
   ["nim.nvim"] = {
     loaded = true,
     path = "/home/rishi/.local/share/nvim/site/pack/packer/start/nim.nvim"
@@ -236,10 +244,6 @@ _G.packer_plugins = {
   ["vim-vsnip"] = {
     loaded = true,
     path = "/home/rishi/.local/share/nvim/site/pack/packer/start/vim-vsnip"
-  },
-  ["vim-vue-plugin"] = {
-    loaded = true,
-    path = "/home/rishi/.local/share/nvim/site/pack/packer/start/vim-vue-plugin"
   },
   ["which-key.nvim"] = {
     loaded = true,

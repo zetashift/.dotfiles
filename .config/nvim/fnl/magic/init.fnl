@@ -14,12 +14,6 @@
 ;; You can learn all about Conjure and how to evaluate things by executing
 ;; :ConjureSchool in your Neovim. This will launch an interactive tutorial.
 
-;;; Theme settings for gruvbox-flat
-(set nvim.o.termguicolors true)
-(set vim.g.gruvbox_italic_keywords false)
-(nvim.ex.colorscheme :gruvbox-flat)
-
-
 (require :magic.options)     ;; Here we set all our (Neo)Vim editor settings
 (require :magic.keybindings) ;; Here we set up our keybindings/mappings
 (require :magic.plugin)      ;; Here we list our plugins

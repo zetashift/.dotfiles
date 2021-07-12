@@ -45,6 +45,8 @@
 
   ;; Editor goodies
   :nvim-lua/plenary.nvim {}                             ;; Make writing plugins easier!
+  :TimUntersberger/neogit { :mod :neogit }              ;; Magit for neovim
+  :vhyrro/neorg           { :mod :neorg }               ;; Document format for the future
   :rmagatti/auto-session { :mod :sessions }             ;; Seamless automatic session management
   :kyazdani42/nvim-tree.lua {}                          ;; Treemacs for my cute NeoVim
   :folke/which-key.nvim { :mod :which-key }             ;; Guided transcendence
@@ -57,7 +59,9 @@
 
   ;; Eyecandy
   :windwp/nvim-autopairs { :mod :auto-pairs }                          ;; Autocomplete even the tiniest things
-  :elianiva/gruvy.nvim { :requires :rktjmp/lush.nvim :mod :gruvy }     ;; A variant on subjectively objectively the best theme
+  :elianiva/gruvy.nvim { :requires :rktjmp/lush.nvim }                 ;; Objectively subjectively the best theme
+  :/home/rishi/dev/neovim/gruvyflat {}                                  ;; My variation on it
+  :eddyekofo94/gruvbox-flat.nvim {}                                    ;; Backup ha!
   :hoob3rt/lualine.nvim { :mod :lualine }                              ;; Displays stuff that I don't read anyway
   :lewis6991/gitsigns.nvim { :mod :gitsigns }                          ;; Pretty colors for Git changes
   :kyazdani42/nvim-web-devicons { :mod :web-devicons }                 ;; Pretty icons!
@@ -81,7 +85,7 @@
 
   ;;; Programming languages
   :scalameta/nvim-metals { :mod :metals }                ;; It's Java but better!
-  :alaviss/nim.nvim {}                                   ;; Nim, it's Python but better!
+  :alaviss/nim.nvim {}                                   ;; It's Python but better!
 
   ;; Libraries
   :wbthomason/packer.nvim {}                             ;; A very nice package manager
