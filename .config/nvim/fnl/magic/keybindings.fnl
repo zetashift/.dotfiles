@@ -49,7 +49,7 @@
                 :n [":lua require('magic.plugin.telescope').search_notes()<CR>"      "Search notes" ]
                 :t [":NvimTreeToggle<CR>"                                            "Toggle NvimTree"]
                 :P [":lua require('magic.plugin.telescope').search_dotfiles()<CR>"   "Browse config"]
-                :w "Grep current word"
+                :w [":lua require('telescope.builtin').grep_string()<CR>"            "Grep current word"]
                 :r [":lua require('magic.plugin.telescope').recent_files()<CR>"      "Recent files"]
               }
 
