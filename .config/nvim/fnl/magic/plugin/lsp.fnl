@@ -1,13 +1,12 @@
 (module magic.plugin.lsp
-  {autoload {lspconfig lspconfig
-             which-key which-key
-             lspsaga lspsaga
-             null-ls null-ls}})
+  {autoload { lspconfig lspconfig
+              lspsaga lspsaga
+              null-ls null-ls
+              trouble trouble }})
 
 ;; Setup null-ls as general language server with the follow `sources`
 (local sources [null-ls.builtins.formatting.prettier null-ls.builtins.formatting.black])
-
-(null-ls.setup {:sources sources})
+(null-ls.setup { :sources sources })
 
 ;; Setup lspsaga for some LSP enhancements
 (lspsaga.init_lsp_saga {
@@ -43,6 +42,9 @@
 
 ;; Vue files
 (lspconfig.vuels.setup {})
+
+;; Show a pretty list of LSP diagnostics
+(trouble.setup {})
 
 ;; Show LSP symbols in a treeview
 (set vim.g.symbols_outline {

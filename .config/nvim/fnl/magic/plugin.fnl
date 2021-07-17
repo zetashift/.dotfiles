@@ -30,37 +30,34 @@
   (.. "require('magic.plugin." name "')"))
 
 (use
-  :Olical/aniseed {}                                    ;; Fennel, the better Lua for NeoVim
-  :Olical/conjure {}                                    ;; NeoEmacs
-  :tami5/compe-conjure {}                               ;; Even easier Lisping in NeoVim
+  :Olical/aniseed {}                                              ;; Fennel, the better Lua for NeoVim
+  :Olical/conjure {}                                              ;; NeoEmacs
+  :tami5/compe-conjure {}                                         ;; Even easier Lisping in NeoVim
 
   ;;; LSP and Treesitter
-  :neovim/nvim-lspconfig {:mod :lsp}                    ;; Easy LSP configuration
-  :jose-elias-alvarez/null-ls.nvim {}                   ;; General purpose languageserver
-  :glepnir/lspsaga.nvim {}                              ;; Actions that for LSP
-  :nvim-treesitter/nvim-treesitter { :mod :treesitter } ;; Fine-grained structural editing for everyone
-  :nvim-treesitter/playground {}                        ;; Actually see the fine-grained structure!
-  :nvim-lua/lsp-status.nvim {}                          ;; Statusline LSP components
-  :simrat39/symbols-outline.nvim {}                     ;; Show LSP symbols in a tree
+  :neovim/nvim-lspconfig { :mod :lsp }                            ;; Easy LSP configuration
+  :jose-elias-alvarez/null-ls.nvim {}                             ;; General purpose languageserver
+  :glepnir/lspsaga.nvim {}                                        ;; Actions that for LSP
+  :folke/trouble.nvim   {}                                        ;; Pretty diagnostics
+  :nvim-treesitter/nvim-treesitter { :mod :treesitter }           ;; Fine-grained structural editing for everyone
+  :nvim-treesitter/playground {}                                  ;; Actually see the fine-grained structure!
+  :nvim-lua/lsp-status.nvim {}                                    ;; Statusline LSP components
+  :simrat39/symbols-outline.nvim {}                               ;; Show LSP symbols in a tree
 
   ;; Editor goodies
-  :nvim-lua/plenary.nvim {}                             ;; Make writing plugins easier!
-  :TimUntersberger/neogit { :mod :neogit }              ;; Magit for neovim
-  :vhyrro/neorg           { :mod :neorg }               ;; Document format for the future
-  :rmagatti/auto-session { :mod :sessions }             ;; Seamless automatic session management
-  :kyazdani42/nvim-tree.lua {}                          ;; Treemacs for my cute NeoVim
-  :folke/which-key.nvim { :mod :which-key }             ;; Guided transcendence
-  :camspiers/snap.nvim { :mod :snap }                   ;; Fast search everything!
-  :hrsh7th/nvim-compe { :mod :compe
-                        :requires :hrsh7th/vim-vsnip }  ;; Autocompletion/Snippets so I don't use my brain
+  :nvim-lua/plenary.nvim {}                                       ;; Make writing plugins easier!
+  :TimUntersberger/neogit { :mod :neogit }                        ;; Magit for neovim
+  :kyazdani42/nvim-tree.lua {  }                                  ;; Treemacs for my cute NeoVim
+  :folke/which-key.nvim { :mod :which-key }                       ;; Guided transcendence
+  :hrsh7th/nvim-compe   { :mod :compe
+                          :requires :hrsh7th/vim-vsnip }          ;; Autocompletion/Snippets so I don't use my brain
 
-  :rafamadriz/friendly-snippets {}                      ;; Snippets collection
-  :folke/zen-mode.nvim { :mod :zen-mode }               ;; Zen Mode
+  :akinsho/nvim-bufferline.lua { :mod :bufferline }               ;; Tab bar for the buffers
+  :rafamadriz/friendly-snippets {}                                ;; Snippets collection
+  :folke/zen-mode.nvim { :mod :zen-mode }                         ;; Zen Mode
 
   ;; Eyecandy
   :windwp/nvim-autopairs { :mod :auto-pairs }                          ;; Autocomplete even the tiniest things
-  :elianiva/gruvy.nvim { :requires :rktjmp/lush.nvim }                 ;; Objectively subjectively the best theme
-  :/home/rishi/dev/neovim/gruvyflat {}                                  ;; My variation on it
   :eddyekofo94/gruvbox-flat.nvim {}                                    ;; Backup ha!
   :hoob3rt/lualine.nvim { :mod :lualine }                              ;; Displays stuff that I don't read anyway
   :lewis6991/gitsigns.nvim { :mod :gitsigns }                          ;; Pretty colors for Git changes
@@ -71,21 +68,24 @@
 
   ;; Text editing
   :ggandor/lightspeed.nvim {}                            ;; Supercharged EasyMotion, using Fennel
-  :liuchengxu/vim-better-default {:mod :better-default}  ;; Better defaults
-  :mbbill/undotree {}                                    ;; See my mistakes in a tree view!
   :b3nj5m1n/kommentary {}                                ;; Commenting made easy
-  :guns/vim-sexp {}                                      ;; Precision editing for S-expressions
   :junegunn/vim-easy-align {}                            ;; Aligning text made easy
-  :tpope/vim-eunuch {}                                   ;; Unix helpers for operations
+  ; :tpope/vim-eunuch {}                                   ;; Unix helpers for operations
   :tpope/vim-repeat {}                                   ;; Repeat motions using `.`
-  :tpope/vim-sleuth {}                                   ;; Automatic indentation settings
   :tpope/vim-surround {}                                 ;; Surround text with pairs
 
-  :akinsho/nvim-toggleterm.lua { :mod :toggleterm }      ;; Toggling terminals with ease
+  :akinsho/nvim-toggleterm.lua { :mod :toggleterm }      ;; Toggling terminals
+  :rmagatti/auto-session { :mod :sessions }              ;; Sessions
 
   ;;; Programming languages
   :scalameta/nvim-metals { :mod :metals }                ;; It's Java but better!
   :alaviss/nim.nvim {}                                   ;; It's Python but better!
+
+  ;; Telescope for fast searching everything
+  :nvim-telescope/telescope-project.nvim    {}
+  :nvim-telescope/telescope-fzf-native.nvim { :run :make }
+  :nvim-telescope/telescope-frecency.nvim   { :requires :tami5/sql.nvim }
+  :nvim-telescope/telescope.nvim            { :requires :nvim-lua/popup.nvim :mod :telescope }
 
   ;; Libraries
   :wbthomason/packer.nvim {}                             ;; A very nice package manager
