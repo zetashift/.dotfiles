@@ -43,6 +43,9 @@
 ;; Vue files
 (lspconfig.vuels.setup {})
 
+;; Lua
+(lspconfig.sumneko_lua.setup {})
+
 ;; Show a pretty list of LSP diagnostics
 (trouble.setup {})
 
@@ -62,6 +65,6 @@
                                       :hover_symbol   :<C-space>
                                       :rename_symbol  :r
                                       :code_actions   :a
-                                      }
+                                     }
                            :lsp_blacklist {}
                            })

@@ -58,7 +58,8 @@
 
   ;; Eyecandy
   :windwp/nvim-autopairs { :mod :auto-pairs }                          ;; Autocomplete even the tiniest things
-  :eddyekofo94/gruvbox-flat.nvim {}                                    ;; Backup ha!
+  ; :eddyekofo94/gruvbox-flat.nvim {}                                  ;; Backup ha!
+  :zetashift/gruvbox-flat.nvim {}                                      ;; My version of gruvbox-flat, objectively subjectively the best theme
   :hoob3rt/lualine.nvim { :mod :lualine }                              ;; Displays stuff that I don't read anyway
   :lewis6991/gitsigns.nvim { :mod :gitsigns }                          ;; Pretty colors for Git changes
   :kyazdani42/nvim-web-devicons { :mod :web-devicons }                 ;; Pretty icons!
@@ -70,7 +71,6 @@
   :ggandor/lightspeed.nvim {}                            ;; Supercharged EasyMotion, using Fennel
   :b3nj5m1n/kommentary {}                                ;; Commenting made easy
   :junegunn/vim-easy-align {}                            ;; Aligning text made easy
-  ; :tpope/vim-eunuch {}                                   ;; Unix helpers for operations
   :tpope/vim-repeat {}                                   ;; Repeat motions using `.`
   :tpope/vim-surround {}                                 ;; Surround text with pairs
 

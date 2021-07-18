@@ -34,7 +34,7 @@
 (wk.register {
               :<leader> {
                 :<leader> [":lua require('magic.plugin.telescope').browse_files()<CR>" "Find file in project"]
-  
+
 
                 "." [":Telescope find_files<CR>"    "Find files"]
                 }

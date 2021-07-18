@@ -63,5 +63,4 @@
 :list_projects
 (fn []
   (telescope.extensions.project.project (dropdown { :previewer false })))
-
 }
