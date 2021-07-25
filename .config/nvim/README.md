@@ -13,5 +13,5 @@ Furthermore I've based and learned a lot from the following projects:
 
 - [zest](https://github.com/tsbohc/zest.nvim)
 - [datwaft dotfiles](https://github.com/datwaft/nvim/tree/master/fnl/core)
-- 
+
 Worth checking out if you want to enhance your config.
