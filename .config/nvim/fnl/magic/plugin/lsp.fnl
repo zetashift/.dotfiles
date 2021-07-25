@@ -29,7 +29,7 @@
                                                                                          :capabilities cap }))
 
 ;; JavaScript and TypeScript
-(lspconfig.tsserver.setup { :filetypes { :javascript :typescript :javascriptreact :typescriptreact }})
+(lspconfig.tsserver.setup {})
 
 ;; Python
 (lspconfig.pyright.setup {})

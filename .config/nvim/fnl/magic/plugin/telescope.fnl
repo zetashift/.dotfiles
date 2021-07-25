@@ -1,9 +1,11 @@
 (module magic.plugin.telescope
-  {autoload {core aniseed.core
-             telescope telescope}})
+  {autoload {telescope telescope}})
 
 
 (telescope.setup {
+  :defaults {
+    :file_ignore_patterns ["node_modules"]
+  }
   :extensions {
     :fzf {
       :override_generic_sorter true
@@ -38,7 +40,7 @@
 ;; Browse and find files in current files working directory
 :find_file
 (fn []
-  (builtin.file_browser (ivy { :cwd (vim.fn.expand "%:p:h" ) :layout_config ivy_layout })))
+  (builtin.find_files (ivy { :cwd (vim.fn.expand "%:p:h" ) :layout_config ivy_layout})))
 
 :live_grep
 (fn []
@@ -47,7 +49,7 @@
 ;; Browse and search files in the CWD
 :browse_files
 (fn []
-  (builtin.file_browser (ivy { :depth 50 :layout_config ivy_layout })))
+  (builtin.file_browser (ivy { :depth 15 :file_ignore_patterns ["node_modules"] :layout_config ivy_layout })))
 
 ;; Browse and search files in the currents file directory
 :recent_files
@@ -63,4 +65,9 @@
 :list_projects
 (fn []
   (telescope.extensions.project.project (dropdown { :previewer false })))
+
+;; Fuzzy find in current buffer
+:buffer_find
+(fn []
+  (builtin.current_buffer_fuzzy_find (dropdown {:previewer false })))
 }

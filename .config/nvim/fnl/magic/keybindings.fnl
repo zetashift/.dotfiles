@@ -35,39 +35,42 @@
               :<leader> {
                 :<leader> [":lua require('magic.plugin.telescope').browse_files()<CR>" "Find file in project"]
 
-
                 "." [":Telescope find_files<CR>"    "Find files"]
                 }
 
               :<leader>f {
-                ;; File navigation related bindings
+                ;; File navigation related bindings and finding
                 :name :file
-                :a "Find actions"
-                :s [":w<CR>"                                                         "Save file"]
+
+                :b [":lua require('magic.plugin.telescope').buffer_find()<CR>"       "Find in buffer"]
+
                 :f [":lua require('magic.plugin.telescope').find_file()<CR>"         "Grep through project"]
                 :g [":lua require('magic.plugin.telescope').live_grep()<CR>"         "Find through Git files"]
                 :n [":lua require('magic.plugin.telescope').search_notes()<CR>"      "Search notes" ]
-                :t [":NvimTreeToggle<CR>"                                            "Toggle NvimTree"]
                 :P [":lua require('magic.plugin.telescope').search_dotfiles()<CR>"   "Browse config"]
-                :w [":lua require('telescope.builtin').grep_string()<CR>"            "Grep current word"]
                 :r [":lua require('magic.plugin.telescope').recent_files()<CR>"      "Recent files"]
+                :s [":w<CR>"                                                         "Save file"]
+                :t [":NvimTreeToggle<CR>"                                            "Toggle NvimTree"]
+                :w [":lua require('telescope.builtin').grep_string()<CR>"            "Grep current word"]
               }
 
               :<leader>w {
                 ;; Window navigation related keybindings
                 :name :window
-                :w ["<C-w>w"        "Cycle window"]
+
+                :d [":bdelete<CR>"  "Close window"]
+                :h [":wincmd h<CR>" "Move to window left"]
                 :k [":wincmd k<CR>" "Move to window above"]
                 :j [":wincmd j<CR>" "Move to window below"]
-                :h [":wincmd h<CR>" "Move to window left"]
                 :l [":wincmd l<CR>" "Move to window right"]
                 :n [":vnew<CR>"     "Create new window"]
-                :d [":bdelete<CR>"  "Close window"]
+                :w ["<C-w>w"        "Cycle window"]
               }
 
               :<leader>b {
                 ;; Buffer navigation bindings
                 :name :buffer
+
                 :b [":Telescope buffers show_all_buffers=true sort_lastused=true<CR>" "Browse buffers"]
                 :c [":enew<CR>"                                                       "Create buffer"]
                 :d [":bdelete<CR>"                                                    "Kill current buffer"]
@@ -76,44 +79,41 @@
                 :p [":BufferLineCyclePrev<CR>"                                        "Previous buffer"]
               }
 
+
+              :<leader>c {
+                ;; LSP related keybindings
+                :name "lsp"
+
+                :a  ["<cmd>lua require'lspsaga.codeaction'.code_action()<CR>"               "Code action"]
+                :d  [vim.lsp.buf.declaration                                                "Go to definition"]
+                :D  [vim.lsp.buf.definition                                                 "Go to type definition"]
+                :f  [vim.lsp.buf.formatting                                                 "Format buffer"]
+                :h  ["<cmd>lua require'lspsaga.hover'.render_hover_doc()<CR>"               "Hover doc"]
+                :i  [vim.lsp.buf.implementation                                             "Go to implementation"]
+                :k  ["<cmd>lua require'lspsaga.signaturehelp'.signature_help()<CR>"         "Signature help"]
+                :n  [vim.lsp.diagnostic.get_line_diagnostic                                 "Show line diagnostic"]
+                :r  [vim.lsp.buf.references                                                 "Go to references"]
+                :R  ["<cmd>lua require'lspsaga.rename'.rename()<CR>"                        "Rename"]
+                :s  [":SymbolsOutline<CR>"                                                  "LSP Symbols"]
+                :x  [":TroubleToggle<CR>"                                                   "List diagnostic"]
+                "]" ["<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>"  "Next LSP diagnostic"]
+                "[" ["<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>"  "Previous LSP diagnostic"]
+              }
+
+
+
+              :<leader>h {
+                :name :help
+
+                :m [":messages<CR>" :Messages]
+              }
+
               :<leader>q {
                    :name :quit
-                   :q [":qa!<CR>" "Quit"]
+
+                   :q [":wqa<CR>" "Quit"]
               }
 
-              ;; LSP related keybindings
-              :<leader>c {
-                   :name "lsp"
-
-                   :a  ["<cmd>lua require'lspsaga.codeaction'.code_action()<CR>"               "Code action"]
-                   :d  [vim.lsp.buf.declaration                                                "Go to definition"]
-                   :D  [vim.lsp.buf.definition                                                 "Go to type definition"]
-                   :f  [vim.lsp.buf.formatting                                                 "Format buffer"]
-                   :h  ["<cmd>lua require'lspsaga.hover'.render_hover_doc()<CR>"               "Hover doc"]
-                   :i  [vim.lsp.buf.implementation                                             "Go to implementation"]
-                   :k  ["<cmd>lua require'lspsaga.signaturehelp'.signature_help()<CR>"         "Signature help"]
-                   :n  [vim.lsp.diagnostic.get_line_diagnostic                                 "Show line diagnostic"] 
-                   :r  [vim.lsp.buf.references                                                 "Go to references"]
-                   :R  ["<cmd>lua require'lspsaga.rename'.rename()<CR>"                        "Rename"]
-                   :s  [":SymbolsOutline<CR>"                                                  "LSP Symbols"]
-                   :x  [":TroubleToggle<CR>"                                                         "List diagnostic"]
-                   "]" ["<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>"  "Next LSP diagnostic"]
-                   "[" ["<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>"  "Previous LSP diagnostic"]
-
-                   }
-
-
-              :<leader>t {
-                  :z [":ZenMode<CR>" "Toggle Zen Mode"]
-              }
-
-              :g {
-                ;; Setup some go-to shortcuts
-                :d  [vim.lsp.buf.definition                                         "Go to definition"]
-                :D  [vim.lsp.buf.type_definition                                    "Go to type definition"]
-                :r  [vim.lsp.buf.references                                         "Go to references"]
-                :h  ["<cmd>lua require'lspsaga.hover'.render_hover_doc()<CR>"       "Hover doc"]
-              }
 
               :<leader>p {
                 :name :project
@@ -121,12 +121,22 @@
                 :p ["<cmd>lua require('magic.plugin.telescope').list_projects()<CR>"  "List projects"]
               }
 
-              :<leader>h {
-                :name :help
+              :<leader>t {
+                :name :toggle
 
-                :m [":messages<CR>"                                                  :Messages]
+                :t [":ToggleBuftabline   "]
+                :z [":ZenMode<CR>"       "Toggle Zen Mode"]
               }
 
+              :g {
+                ;; Setup some go-to shortcuts
+                :name :go
+
+                :d  [vim.lsp.buf.definition                                         "Go to definition"]
+                :D  [vim.lsp.buf.type_definition                                    "Go to type definition"]
+                :r  [vim.lsp.buf.references                                         "Go to references"]
+                :h  ["<cmd>lua require'lspsaga.hover'.render_hover_doc()<CR>"       "Hover doc"]
+              }
 })
 
 ;; Paste until end binding

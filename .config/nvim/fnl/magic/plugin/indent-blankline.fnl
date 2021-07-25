@@ -1,5 +1,4 @@
-(module magic.plugin.indent-blankline
-  {autoload {nvim aniseed.nvim}})
+(module magic.plugin.indent-blankline)
 
 (set vim.wo.colorcolumn :99999)
 (set vim.g.indent_blankline_char "│")

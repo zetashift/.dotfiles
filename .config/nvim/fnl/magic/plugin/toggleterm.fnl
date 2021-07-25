@@ -2,3 +2,4 @@
   {autoload {toggleterm toggleterm}})
 
 (toggleterm.setup {:open_mapping "`"})
+
