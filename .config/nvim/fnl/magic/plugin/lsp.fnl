@@ -5,7 +5,7 @@
               trouble trouble }})
 
 ;; Setup null-ls as general language server with the follow `sources`
-(local sources [null-ls.builtins.formatting.prettier null-ls.builtins.formatting.black])
+(local sources [null-ls.builtins.formatting.prettier null-ls.builtins.formatting.black null-ls.builtins.formatting.fnlfmt])
 (null-ls.setup { :sources sources })
 
 ;; Setup lspsaga for some LSP enhancements
@@ -44,7 +44,7 @@
 (lspconfig.vuels.setup {})
 
 ;; Lua
-(lspconfig.sumneko_lua.setup {})
+(lspconfig.sumneko_lua.setup { :cmd [ :lua-language-server ] })
 
 ;; Show a pretty list of LSP diagnostics
 (trouble.setup {})

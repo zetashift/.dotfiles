@@ -25,8 +25,8 @@
 (local ivy      (. (require :telescope.themes) :get_ivy))
 (local ivy_layout { :height 15 } )
 (local dropdown (. (require :telescope.themes) :get_dropdown))
-{
 
+{
 ;; Search dotfiles
 :search_dotfiles
 (fn []
@@ -55,7 +55,6 @@
 :recent_files
   (fn []
      (telescope.extensions.frecency.frecency (dropdown {
-                                                        :persistent_filter false
                                                         :ignore_patterns   [ "*.git/*" "*.metals/*" "*.bloop/*" ]
                                                         :border            true
                                                         :previewer         false

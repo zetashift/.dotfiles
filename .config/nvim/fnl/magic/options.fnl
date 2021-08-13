@@ -38,4 +38,3 @@
 (set nvim.o.sessionoptions "blank,curdir,folds,tabpages,winsize")
 
 (: (vim.opt_global.shortmess:remove :F) :append :c)
-
