@@ -5,9 +5,10 @@ SETUVAR LIBVA_DRIVER_NAME:vdpau
 SETUVAR VDPAU_DRIVER:nvidia
 SETUVAR __fish_initialized:3100
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:/home/rishi/\x2econfig/fish/functions/fisher\x2efish\x1e/home/rishi/\x2econfig/fish/completions/fisher\x2efish
+SETUVAR _fisher_jorgebucaran_2F_hydro_files:/home/rishi/\x2econfig/fish/functions/fish_mode_prompt\x2efish\x1e/home/rishi/\x2econfig/fish/functions/fish_prompt\x2efish\x1e/home/rishi/\x2econfig/fish/functions/fish_title\x2efish\x1e/home/rishi/\x2econfig/fish/conf\x2ed/hydro\x2efish
 SETUVAR _fisher_jorgebucaran_2F_nvm_2E_fish_files:/home/rishi/\x2econfig/fish/functions/_nvm_index_update\x2efish\x1e/home/rishi/\x2econfig/fish/functions/_nvm_list\x2efish\x1e/home/rishi/\x2econfig/fish/functions/_nvm_version_activate\x2efish\x1e/home/rishi/\x2econfig/fish/functions/_nvm_version_deactivate\x2efish\x1e/home/rishi/\x2econfig/fish/functions/nvm\x2efish\x1e/home/rishi/\x2econfig/fish/conf\x2ed/nvm\x2efish\x1e/home/rishi/\x2econfig/fish/completions/nvm\x2efish
 SETUVAR _fisher_lilyball_2F_nix_2D_env_2E_fish_files:/home/rishi/\x2econfig/fish/conf\x2ed/nix\x2denv\x2efish
-SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ereitzig/sdkman\x2dfor\x2dfish\x40v1\x2e4\x2e0\x1elilyball/nix\x2denv\x2efish\x1ejorgebucaran/nvm\x2efish
+SETUVAR _fisher_plugins:reitzig/sdkman\x2dfor\x2dfish\x40v1\x2e4\x2e0\x1elilyball/nix\x2denv\x2efish\x1ejorgebucaran/fisher\x1ejorgebucaran/hydro\x1ejorgebucaran/nvm\x2efish
 SETUVAR _fisher_reitzig_2F_sdkman_2D_for_2D_fish_40_v1_2E_34_2E_30__files:/home/rishi/\x2econfig/fish/functions/sdk\x2efish\x1e/home/rishi/\x2econfig/fish/conf\x2ed/sdk\x2efish\x1e/home/rishi/\x2econfig/fish/completions/sdk\x2efish
 SETUVAR fish_color_autosuggestion:707A8C
 SETUVAR fish_color_cancel:normal
