@@ -2,19 +2,34 @@
 local wezterm = require 'wezterm'
 
 return {
-	  font = wezterm.font("Iosevka"),
+	  font = wezterm.font_with_fallback({"Iosevka", "JetBrains Mono"}),
     font_size = 18,
     color_scheme = "Gruvbox Dark",
 		hide_tab_bar_if_only_one_tab = true,
-		text_background_opacity = 1.0,
-		window_background_image = "/home/rishi/.config/wezterm/wall.jpg",
-		window_background_image_hsb = {
-			brightness = 0.38,
-			hue = 1.0,
-			saturation = 0.6
-		},
-		keys = {
-			{ key="[", mods="SUPER", action=wezterm.action{ActivateTabRelative=-1} },
-			{ key="]", mods="SUPER", action=wezterm.action{ActivateTabRelative=1} }
+		window_background_opacity = 0.86,
+		colors = {
+			tab_bar = {
+				background = "#3c3836",
+				active_tab = {
+					bg_color = "#665c54",
+					fg_color = "#EDF5FD"
+				},
+				inactive_tab = {
+					bg_color = "#504945",
+					fg_color = "#928374"
+				},
+				inactive_tab_hover = {
+					bg_color = "#665c54",
+					fg_color = "#EDF5FD"
+				},
+				new_tab = {
+					bg_color = "#504945",
+					fg_color = "#928374"
+				},
+				new_tab_hover = {
+					bg_color = "#665c54",
+					fg_color = "#EDF5FD"
+				},
+			}
 		}
 	}
