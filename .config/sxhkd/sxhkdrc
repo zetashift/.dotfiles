@@ -13,29 +13,32 @@ super + d
 	~/.config/rofi/launchers/ribbon/launcher.sh
 
 # show open window
-super + l
+super + u
 	~/.config/rofi/launchers/text/launcher.sh
 
 # show ssh sesssions
 super + shift + d
- ~/.config/rofi/launchers/text/launcher.sh
+  ~/.config/rofi/launchers/text/launcher.sh
 
 # power-menu
 super + shift + e
-     ~/.config/rofi/powermenu.sh
+  ~/.config/rofi/powermenu/powermenu.sh
 
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
 
-#
+# Open Neovim in my dev directory
+super + e
+	wezterm start -- nvim ~/dev
+
 # bspwm hotkeys
 #
 
 # quit/restart bspwm
 super + alt + {q,r}
 	bspc {quit,wm -r}
-
+inactive_tab_hover
 # close and kill
 super + {_,shift + }q
 	bspc node -{c,k}
@@ -162,17 +165,17 @@ XF86MonBrightnessDown
 
 # Screenshot
 Print
-  scrot ~/Pictures/Screenshot-$(date +%F_%T).png
+	flameshot gui
 
 super+Print
   ~/.config/bspwm/scripts/screenshot.sh
 
 # Shortcuts
-super + w 
+super + w
   firefox
 
 super + n 
-  thunar  
+  thunar
 
 super + F1
   ~/.config/bspwm/scripts/keybindings_rofi.sh
