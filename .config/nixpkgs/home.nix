@@ -14,15 +14,10 @@
     fzf
     jq
     fd
-    ibm-plex
-    starship
     ammonite
-    direnv
-    lorri
     nixfmt
     black
     rnix-lsp
-    metals
     nodePackages.json-server
     nodePackages.pyright
     nodePackages.vscode-html-languageserver-bin
@@ -32,9 +27,6 @@
     sumneko-lua-language-server
   ];
 
-  # programs.direnv.enable = true;
-  # programs.direnv.enableNixDirenvIntegration = true;
-  # services.lorri.enable = true;
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new Home Manager release introduces backwards
