@@ -144,11 +144,9 @@ super + {Left,Down,Up,Right}
 XF86AudioRaiseVolume
   amixer -q set Master 5%+ unmute
 
-# Still muøltimedia
 XF86AudioLowerVolume
   amixer -q set Master 5%- unmute
 
-# still
 XF86AudioMute
   amixer -D pulse sset Master toggle-mute
   
@@ -179,3 +177,14 @@ super + n
 
 super + F1
   ~/.config/bspwm/scripts/keybindings_rofi.sh
+
+# Spotify
+XF86AudioPlay
+	dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+
+XF86AudioNext
+	dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+
+XF86AudioPrev
+	dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+
