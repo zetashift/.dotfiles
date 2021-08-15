@@ -9,8 +9,6 @@
 
 ;; (Neo)Vim related options
 (nvim.ex.set :list)
-(nvim.ex.autocmd "BufNewFile,BufRead *.sc set filetype=scala")
-
 (set vim.o.hlsearch false)
 
 ;; Case insensitive searching unless /C or capital in search

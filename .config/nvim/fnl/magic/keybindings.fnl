@@ -11,7 +11,7 @@
 
 (defn- map [mode from to opts]
   ;; "Sets a mapping with `opts` passed through"
-  (var options { :noremap true :silent  true })
+  (var options { :noremap true :silent true })
   (when opts
     (set options (vim.tbl_extend :force options opts)))
   (vim.api.nvim_set_keymap mode from to options)

@@ -5,12 +5,12 @@
 (fn _G.metals_init []
   (let [metals (require :metals)
         conf metals.bare_config ]
-    (set conf.init_options { :statusBarProvider :on })
+    (tset conf :init_options { :statusBarProvider :on })
 
-    (set conf.settings {  :showImplicitArguments    true
-                            :showInferredType         true
-                            :fallbackScalaVersion     :3.0.1
-                            :superMethodLensesEnabled true   })
+    (tset conf :settings { :showImplicitArguments    true
+                           :showInferredType         true
+                           :fallbackScalaVersion     :3.0.1
+                           :superMethodLensesEnabled true   })
 
     (metals.initialize_or_attach conf)))
 

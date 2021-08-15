@@ -6,11 +6,11 @@
 
 ;; Setup null-ls as general language server with the follow `sources`
 (local sources [null-ls.builtins.formatting.prettier null-ls.builtins.formatting.black null-ls.builtins.formatting.fnlfmt])
-(null-ls.setup { :sources sources })
+(null-ls.config { :sources sources })
 
 ;; Setup lspsaga for some LSP enhancements
 (lspsaga.init_lsp_saga {
-                        :server_filetype_map { :metals       [:sbt :scala] }
+                        :server_filetype_map { :metals       [:sbt :scala :sc] }
                         :code_action_prompt  { :virtual_text false }
                         })
 
@@ -27,9 +27,16 @@
 
 (set lspconfig.util.default_config (vim.tbl_extend :force lspconfig.util.default_config {:handlers     handlers
                                                                                          :capabilities cap }))
-
+;; Null-ls
+(lspconfig.null-ls.setup {})
 ;; JavaScript and TypeScript
 (lspconfig.tsserver.setup {})
+
+;; CSS
+(lspconfig.cssls.setup {})
+
+;; HTML
+(lspconfig.html.setup {})
 
 ;; Python
 (lspconfig.pyright.setup {})
@@ -45,6 +52,7 @@
 
 ;; Lua
 (lspconfig.sumneko_lua.setup { :cmd [ :lua-language-server ] })
+
 
 ;; Show a pretty list of LSP diagnostics
 (trouble.setup {})
