@@ -11,10 +11,10 @@
 
 (defn- map [mode from to opts]
   ;; "Sets a mapping with `opts` passed through"
-  (local options { :noremap true :silent  true })
-  (when (not= opts {})
-    (vim.tbl_extend :force options opts))
-  (nvim.set_keymap mode from to options)
+  (var options { :noremap true :silent  true })
+  (when opts
+    (set options (vim.tbl_extend :force options opts)))
+  (vim.api.nvim_set_keymap mode from to options)
 )
 
 ;; Use tab to shift through snippets and suggestions
@@ -26,9 +26,9 @@
 ;; Map escape to get out of terminal insert mode
 (map :t :<Esc> "<C-\\><C-n>" {})
 
-;; Map for dealing with word wrap (from defaults.nvim)
-(map :n :k "v:count == 0 ? 'gk' : 'k'", { :expr true })
-(map :n :j "v:count == 0 ? 'gj' : 'j'", { :expr true })
+;; Map for dealing with word wrap
+(map :n :k "v:count ? 'k' : 'gk'" { :expr true })
+(map :n :j "v:count ? 'j' : 'gj'" { :expr true })
 
 ;; EasyAlign mappings
 (map :x :ga "<Plug>(EasyAlign)" {})
@@ -128,8 +128,9 @@
               :<leader>t {
                 :name :toggle
 
-                :t [":ToggleBuftabline   "]
-                :z [":ZenMode<CR>"       "Toggle Zen Mode"]
+                :t [":ToggleBuftabline"]
+                :w [":set wrap linebreak nolist<CR>" "Soft wrap"]
+                :z [":ZenMode<CR>"                   "Toggle Zen Mode"]
               }
 
               :g {
