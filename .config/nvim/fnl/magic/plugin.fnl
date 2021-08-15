@@ -50,6 +50,7 @@
   :rafamadriz/friendly-snippets {}                                ;; Snippets collection
   :folke/zen-mode.nvim { :config (req :zen-mode)                  ;; Zen Mode
                          :event :BufWinEnter }
+  :rmagatti/auto-session {}                                       ;; Auto sessions
 
   ;; Eyecandy
   :windwp/nvim-autopairs { :config (req :auto-pairs) }                                  ;; Autopair with treesitter
