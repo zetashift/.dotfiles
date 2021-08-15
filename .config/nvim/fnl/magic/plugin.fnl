@@ -72,6 +72,7 @@
   :akinsho/nvim-bufferline.lua { :config (req :bufferline) }       ;; A solid bufferline
   :akinsho/nvim-toggleterm.lua { :config (req :toggleterm) }       ;; Toggling terminals
   :rmagatti/auto-session { :config (req :sessions) }               ;; Sessions
+  :beauwilliams/focus.nvim {}                                      ;; Effortless splitting
 
   ;;; Programming languages
   :scalameta/nvim-metals { :config (req :metals) }                ;; It's Java but better!

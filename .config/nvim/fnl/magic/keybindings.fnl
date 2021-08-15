@@ -62,13 +62,13 @@
                 ;; Window navigation related keybindings
                 :name :window
 
-                :d [":bdelete<CR>"  "Close window"]
-                :h [":wincmd h<CR>" "Move to window left"]
-                :k [":wincmd k<CR>" "Move to window above"]
-                :j [":wincmd j<CR>" "Move to window below"]
-                :l [":wincmd l<CR>" "Move to window right"]
-                :n [":vnew<CR>"     "Create new window"]
-                :w ["<C-w>w"        "Cycle window"]
+                :d [":bdelete<CR>"              "Close window"]
+                :h [":FocusSplitLeft<CR>"       "Move to window left"]
+                :k [":FocusSplitUp<CR>"         "Move to window above"]
+                :j [":FocusSplitDown<CR>"       "Move to window below"]
+                :l [":FocusSplitRight<CR>"      "Move to window right"]
+                :n [":FocusSplitNicely<CR>"     "Create new window"]
+                :w ["<C-w>w"                    "Cycle window"]
               }
 
               :<leader>b {
@@ -128,9 +128,10 @@
               :<leader>t {
                 :name :toggle
 
-                :t [":ToggleBuftabline"]
-                :w [":set wrap linebreak nolist<CR>" "Soft wrap"]
-                :z [":ZenMode<CR>"                   "Toggle Zen Mode"]
+                :f [":FocusToggle<CR>"                   "Toggle Focus Splitting"]
+                :t [":ToggleBuftabline<CR>"              "Toggle Buffer line"]
+                :w [":set wrap linebreak nolist<CR>"     "Soft wrap"]
+                :z [":ZenMode<CR>"                       "Toggle Zen Mode"]
               }
 
               :g {
