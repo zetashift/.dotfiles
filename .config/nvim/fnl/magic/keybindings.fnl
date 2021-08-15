@@ -26,6 +26,10 @@
 ;; Map escape to get out of terminal insert mode
 (map :t :<Esc> "<C-\\><C-n>" {})
 
+;; Map for dealing with word wrap (from defaults.nvim)
+(map :n :k "v:count == 0 ? 'gk' : 'k'", { :expr true })
+(map :n :j "v:count == 0 ? 'gj' : 'j'", { :expr true })
+
 ;; EasyAlign mappings
 (map :x :ga "<Plug>(EasyAlign)" {})
 (map :n :ga "<Plug>(EasyAlign)" {})

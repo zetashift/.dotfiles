@@ -18,7 +18,7 @@
 (set vim.o.smartcase  true)
 (set vim.o.splitright true)
 (nvim.ex.set :number)
-(nvim.ex.set :wrap)
+(nvim.ex.set :wrap!)
 (nvim.ex.set "wildmode=full")
 (nvim.ex.set "wildoptions=pum")
 (nvim.ex.set "listchars-=eol:↵")

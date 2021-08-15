@@ -42,7 +42,7 @@
   ; :TimUntersberger/neogit { :config (req :neogit) }             ;; Magit for neovim
   :kyazdani42/nvim-tree.lua {}                                    ;; Treemacs for my cute NeoVim
   :folke/which-key.nvim { :config (req :which-key) }
-
+  :vhyrro/neorg { :config (req :neorg) }
   :hrsh7th/nvim-compe   { :as :compe                              ;; Autocompletion/Snippets so I don't use my brain
                           :config (req :compe)
                           :requires :hrsh7th/vim-vsnip }

@@ -1,6 +1,0 @@
-[0m2021.08.06 17:01:52 INFO  Started: Metals version 0.10.5 in workspace '/home/rishi/.config/nvim/fnl/magic/plugin' for client Neovim 0.6.0.[0m
-[0m2021.08.06 17:01:57 INFO  time: initialize in 5.65s[0m
-[0m2021.08.06 17:01:59 WARN  Build server is not auto-connectable.[0m
-[0m2021.08.06 17:01:59 WARN  no build tool detected in workspace '/home/rishi/.config/nvim/fnl/magic/plugin'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
-[0m2021.08.06 17:12:17 INFO  no build target: using presentation compiler with only scala-library: 3.0.1[0m
-[0m2021.08.06 17:49:50 INFO  shutting down Metals[0m
