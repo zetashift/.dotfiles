@@ -21,4 +21,3 @@
 
 ; Add aniseed core functions to globals
 (import-all a.aniseed/locals)
-

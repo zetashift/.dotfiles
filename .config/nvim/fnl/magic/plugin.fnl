@@ -29,6 +29,7 @@
                            
   :jose-elias-alvarez/null-ls.nvim {}                             ;; General purpose languageserver
   :glepnir/lspsaga.nvim {}                                        ;; Actions that for LSP
+  :rmagatti/goto-preview {}                                       ;; Floating preview for definitions
   :folke/trouble.nvim   {}                                        ;; Pretty diagnostics
   :nvim-treesitter/nvim-treesitter { :config (req :treesitter)
                                      :as :treesitter }            ;; Fine-grained structural editing for everyone
@@ -42,18 +43,26 @@
   ; :TimUntersberger/neogit { :config (req :neogit) }             ;; Magit for neovim
   :kyazdani42/nvim-tree.lua {}                                    ;; Treemacs for my cute NeoVim
   :folke/which-key.nvim { :config (req :which-key) }
-  :vhyrro/neorg { :config (req :neorg) }
-  :hrsh7th/nvim-compe   { :as :compe                              ;; Autocompletion/Snippets so I don't use my brain
-                          :config (req :compe)
-                          :requires :hrsh7th/vim-vsnip }
+  :vhyrro/neorg         { :config (req :neorg) }
+  :hrsh7th/nvim-cmp     { :as :cmp                              ;; Autocompletion/Snippets so I don't use my brain
+                          :config (req :cmp)
+                          :requires [:L3MON4D3/LuaSnip
+                                     :saadparwaiz1/cmp_luasnip
+                                     :hrsh7th/cmp-buffer
+                                     :hrsh7th/cmp-path
+                                     :hrsh7th/cmp-nvim-lsp] }
 
   :rafamadriz/friendly-snippets {}                                ;; Snippets collection
   :folke/zen-mode.nvim { :config (req :zen-mode)                  ;; Zen Mode
                          :event :BufWinEnter }
-  :rmagatti/auto-session {}                                       ;; Auto sessions
+
+  :abecodes/tabout.nvim  { :config (req :tabout)                  ;; Tabbing out of contexts
+                           :requires :treesitter
+                           :after :cmp }
 
   ;; Eyecandy
-  :windwp/nvim-autopairs { :config (req :auto-pairs) }                                  ;; Autopair with treesitter
+  :windwp/nvim-autopairs { :config (req :auto-pairs)
+                           :requires :cmp }                                  ;; Autopair with treesitter
   :zetashift/gruvbox-flat.nvim {}                                                       ;; Objectively subjectively the best theme
   :hoob3rt/lualine.nvim { :config (req :lualine) }                                      ;; Displays stuff that I don't read anyway
   :lewis6991/gitsigns.nvim { :config (req :gitsigns) }                                  ;; Pretty colors for Git changes

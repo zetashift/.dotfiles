@@ -5,8 +5,8 @@
 (npairs.setup {})
 
 ;; Setup auto-pairs with compe <CR>
-(local compe (require :nvim-autopairs.completion.compe))
-(compe.setup { :map_cr true :map_complete true })
+(local cmp (require :nvim-autopairs.completion.cmp))
+(cmp.setup { :map_cr true :map_complete true })
 
 ;; Add { | } spacing rule
 (npairs.add_rules [ (: (rule " " " ") :with_pair

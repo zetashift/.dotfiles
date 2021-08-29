@@ -17,12 +17,6 @@
   (vim.api.nvim_set_keymap mode from to options)
 )
 
-;; Use tab to shift through snippets and suggestions
-(vim.cmd "imap <expr> <Tab>     pumvisible() ? '<C-n>' : vsnip#jumpable(1)    ? '<Plug>(vsnip-jump-next)' : '<Tab>'")
-(vim.cmd "imap <expr> <S-Tab>   pumvisible() ? '<C-p>' : vsnip#jumpable(-1)   ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'")
-(vim.cmd "smap <expr> <Tab>     vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)' : '<Tab>'")
-(vim.cmd "smap <expr> <S-Tab>   vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'")
-
 ;; Map escape to get out of terminal insert mode
 (map :t :<Esc> "<C-\\><C-n>" {})
 
@@ -142,9 +136,13 @@
                 :D  [vim.lsp.buf.type_definition                                    "Go to type definition"]
                 :r  [vim.lsp.buf.references                                         "Go to references"]
                 :h  ["<cmd>lua require'lspsaga.hover'.render_hover_doc()<CR>"       "Hover doc"]
+                :p {
+                    :name :preview ;; Go to implemention previews
+
+                    :c ["<cmd>lua require('goto-preview').close_all_win()<CR>"               "Close preview windows"]
+                    :d ["<cmd>lua require('goto-preview').goto_preview_definition()<CR>"     "Preview definition"]
+                    :i ["<cmd>lua require('goto-preview').goto_preview_implementation()<CR>" "Preview implemention"]
+                    
+                }
               }
 })
-
-;; Paste until end binding
-(wk.register {:Y  ["y$"  "Yank until end of line"]})
-

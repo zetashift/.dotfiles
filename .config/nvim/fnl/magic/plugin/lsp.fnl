@@ -2,7 +2,11 @@
   {autoload { lspconfig lspconfig
               lspsaga lspsaga
               null-ls null-ls
-              trouble trouble }})
+              trouble trouble
+              goto-preview goto-preview}})
+
+;; Setup Go To Preview for floating window previews
+(goto-preview.setup {})
 
 ;; Setup null-ls as general language server with the follow `sources`
 (local sources [null-ls.builtins.formatting.prettier null-ls.builtins.formatting.black null-ls.builtins.formatting.fnlfmt])

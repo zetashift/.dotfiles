@@ -33,6 +33,6 @@
 (set nvim.o.shiftwidth     2)
 (vim.cmd                   "set undofile")
 (set vim.o.completeopt     "menuone,noinsert,noselect")
-(set nvim.o.sessionoptions "blank,curdir,folds,tabpages,winsize")
+(set nvim.o.sessionoptions "blank,buffers,curdir,folds,help,options,tabpages,winsize,resize,terminal")
 
 (: (vim.opt_global.shortmess:remove :F) :append :c)
